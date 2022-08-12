@@ -15,6 +15,10 @@ const Home = () => {
 
     const handleSearch = (e) => {
         const value = e.target.value.toLowerCase();
+        if (value.length === 0) {
+            setFilterData([])
+            return
+        }
 
         const result = allData.filter((data) => data?.name?.toLowerCase().slice(0, value.length).indexOf(value) !== -1);
         setFilterData(result)
